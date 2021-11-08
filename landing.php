@@ -21,7 +21,7 @@ error_reporting(0);
     <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet" />
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="landing/css/styles.css" />
+    <link rel="stylesheet" href="landing/assets/css/styles.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
     <title>Restoran Binjai</title>
@@ -59,7 +59,7 @@ error_reporting(0);
                     </li>
                 </ul>
             </div>
-            <button class="cta cta1"><a href="login.php">Log In</a></button>
+            <button class="cta cta1"><a href="index.php">Log In</a></button>
             <button class="cta cta2">
                 <a href="register.php">Sign Up</a>
             </button>
@@ -71,12 +71,12 @@ error_reporting(0);
         <section class="home" id="home">
             <div class="home__container bd-grid">
                 <div class="home__img">
-                    <img src="landing/img/img1.png" alt="" data-speed="-2" class="move" />
-                    <img src="landing/img/img2.png" alt="" data-speed="2" class="move" />
-                    <img src="landing/img/img3.png" alt="" data-speed="2" class="move" />
-                    <img src="landing/img/img4.png" alt="" data-speed="-2" class="move" />
-                    <img src="landing/img/img5.png" alt="" data-speed="-2" class="move" />
-                    <img src="landing/img/img6.png" alt="" data-speed="2" class="move" />
+                    <img src="landing/assets/img/img1.png" alt="" data-speed="-2" class="move" />
+                    <img src="landing/assets/img/img2.png" alt="" data-speed="2" class="move" />
+                    <img src="landing/assets/img/img3.png" alt="" data-speed="2" class="move" />
+                    <img src="landing/assets/img/img4.png" alt="" data-speed="-2" class="move" />
+                    <img src="landing/assets/img/img5.png" alt="" data-speed="-2" class="move" />
+                    <img src="landing/assets/img/img6.png" alt="" data-speed="2" class="move" />
                 </div>
 
                 <div class="home__data">
@@ -85,7 +85,7 @@ error_reporting(0);
                         Menikmati indahnya cita rasa masakan<br />
                         Binjai.
                     </p>
-                    <a href="login.php" class="home__button">Get Started</a>
+                    <a href="index.php" class="home__button">Get Started</a>
                 </div>
             </div>
         </section>
@@ -95,7 +95,7 @@ error_reporting(0);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="landing/js/main.js"></script>
+    <script src="landing/assets/js/main.js"></script>
 </body>
 
 </html>

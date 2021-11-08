@@ -1,40 +1,9 @@
-<?php
+<?php 
 
 session_start();
 
-if (!isset($_SESSION["user_id"])) {
+if (!isset($_SESSION['username'])) {
     header("Location: index.php");
-}
-
-include 'config.php';
-
-if (isset($_POST["submit"])) {
-    $full_name = mysqli_real_escape_string($conn, $_POST["full_name"]);
-    $password = mysqli_real_escape_string($conn, md5($_POST["password"]));
-    $cpassword = mysqli_real_escape_string($conn, md5($_POST["cpassword"]));
-
-    if ($password === $cpassword) {
-        $photo_name = $_FILES["photo"]["name"];
-        $photo_tmp_name = $_FILES["photo"]["tmp_name"];
-        $photo_size = $_FILES["photo"]["size"];
-        $photo_new_name = rand() . $photo_name;
-
-        if ($photo_size > 5242880) {
-            echo "<script>alert('Photo is very big. Maximum photo uploading size is 5MB.');</script>";
-        } else {
-            $sql = "UPDATE users SET full_name='$full_name', password='$password', photo='$photo_new_name' WHERE id='{$_SESSION["user_id"]}'";
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                echo "<script>alert('Profile Updated successfully.');</script>";
-                move_uploaded_file($photo_tmp_name, "uploads/" . $photo_new_name);
-            } else {
-                echo "<script>alert('Profile can not Updated.');</script>";
-                echo  $conn->error;
-            }
-        }
-    } else {
-        echo "<script>alert('Password not matched. Please try again.');</script>";
-    }
 }
 
 ?>
@@ -53,7 +22,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="home/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -101,7 +70,7 @@ if (isset($_POST["submit"])) {
             <div class="box-container">
                 <div class="box">
                     <i class="fas fa-times"></i>
-                    <img src="home/image/menu-1.png" alt="" />
+                    <img src="image/menu-1.png" alt="" />
                     <div class="content">
                         <h3>delicious food</h3>
                         <span> quantity : </span>
@@ -114,7 +83,7 @@ if (isset($_POST["submit"])) {
 
                 <div class="box">
                     <i class="fas fa-times"></i>
-                    <img src="home/image/menu-2.png" alt="" />
+                    <img src="image/menu-2.png" alt="" />
                     <div class="content">
                         <h3>delicious food</h3>
                         <span> quantity : </span>
@@ -127,7 +96,7 @@ if (isset($_POST["submit"])) {
 
                 <div class="box">
                     <i class="fas fa-times"></i>
-                    <img src="home/image/menu-3.png" alt="" />
+                    <img src="image/menu-3.png" alt="" />
                     <div class="content">
                         <h3>delicious food</h3>
                         <span> quantity : </span>
@@ -140,7 +109,7 @@ if (isset($_POST["submit"])) {
 
                 <div class="box">
                     <i class="fas fa-times"></i>
-                    <img src="home/image/menu-4.png" alt="" />
+                    <img src="image/menu-4.png" alt="" />
                     <div class="content">
                         <h3>delicious food</h3>
                         <span> quantity : </span>
@@ -153,7 +122,7 @@ if (isset($_POST["submit"])) {
 
                 <div class="box">
                     <i class="fas fa-times"></i>
-                    <img src="home/image/menu-5.png" alt="" />
+                    <img src="image/menu-5.png" alt="" />
                     <div class="content">
                         <h3>delicious food</h3>
                         <span> quantity : </span>
@@ -213,7 +182,7 @@ if (isset($_POST["submit"])) {
                         <a href="#" class="btn">order now</a>
                     </div>
                     <div class="image">
-                        <img src="home/image/home-img-1.png" alt="" />
+                        <img src="image/home-img-1.png" alt="" />
                     </div>
                 </div>
 
@@ -228,7 +197,7 @@ if (isset($_POST["submit"])) {
                         <a href="#" class="btn">order now</a>
                     </div>
                     <div class="image">
-                        <img src="home/image/home-img-2.png" alt="" />
+                        <img src="image/home-img-2.png" alt="" />
                     </div>
                 </div>
 
@@ -243,7 +212,7 @@ if (isset($_POST["submit"])) {
                         <a href="#" class="btn">order now</a>
                     </div>
                     <div class="image">
-                        <img src="home/image/home-img-3.png" alt="" />
+                        <img src="image/home-img-3.png" alt="" />
                     </div>
                 </div>
             </div>
@@ -256,32 +225,32 @@ if (isset($_POST["submit"])) {
 
     <section class="category">
         <a href="#" class="box">
-            <img src="home/image/cat-1.png" alt="" />
+            <img src="image/cat-1.png" alt="" />
             <h3>combo</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="home/image/cat-2.png" alt="" />
+            <img src="image/cat-2.png" alt="" />
             <h3>pizza</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="home/image/cat-3.png" alt="" />
+            <img src="image/cat-3.png" alt="" />
             <h3>burger</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="home/image/cat-4.png" alt="" />
+            <img src="image/cat-4.png" alt="" />
             <h3>chicken</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="home/image/cat-5.png" alt="" />
+            <img src="image/cat-5.png" alt="" />
             <h3>dinner</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="home/image/cat-6.png" alt="" />
+            <img src="image/cat-6.png" alt="" />
             <h3>coffee</h3>
         </a>
     </section>
@@ -292,7 +261,7 @@ if (isset($_POST["submit"])) {
 
     <section class="about" id="about">
         <div class="image">
-            <img src="home/image/about-img.png" alt="" />
+            <img src="image/about-img.png" alt="" />
         </div>
 
         <div class="content">
@@ -305,19 +274,19 @@ if (isset($_POST["submit"])) {
             <a href="#" class="btn">read more</a>
             <div class="icons-container">
                 <div class="icons">
-                    <img src="home/image/serv-1.png" alt="" />
+                    <img src="image/serv-1.png" alt="" />
                     <h3>fast delivery</h3>
                 </div>
                 <div class="icons">
-                    <img src="home/image/serv-2.png" alt="" />
+                    <img src="image/serv-2.png" alt="" />
                     <h3>fresh food</h3>
                 </div>
                 <div class="icons">
-                    <img src="home/image/serv-3.png" alt="" />
+                    <img src="image/serv-3.png" alt="" />
                     <h3>best quality</h3>
                 </div>
                 <div class="icons">
-                    <img src="home/image/serv-4.png" alt="" />
+                    <img src="image/serv-4.png" alt="" />
                     <h3>24/7 support</h3>
                 </div>
             </div>
@@ -338,7 +307,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-1.png" alt="" />
+                    <img src="image/food-1.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -358,7 +327,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-2.png" alt="" />
+                    <img src="image/food-2.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -378,7 +347,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-3.png" alt="" />
+                    <img src="image/food-3.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -398,7 +367,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-4.png" alt="" />
+                    <img src="image/food-4.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -418,7 +387,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-5.png" alt="" />
+                    <img src="image/food-5.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -438,7 +407,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-6.png" alt="" />
+                    <img src="image/food-6.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -458,7 +427,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-7.png" alt="" />
+                    <img src="image/food-7.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -478,7 +447,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <div class="image">
-                    <img src="home/image/food-8.png" alt="" />
+                    <img src="image/food-8.png" alt="" />
                 </div>
                 <div class="content">
                     <h3>delicious food</h3>
@@ -513,7 +482,7 @@ if (isset($_POST["submit"])) {
 
         <div class="grid-banner">
             <div class="grid">
-                <img src="home/image/banner-1.png" alt="" />
+                <img src="image/banner-1.png" alt="" />
                 <div class="content">
                     <span>special offer</span>
                     <h3>upto 50% off</h3>
@@ -521,7 +490,7 @@ if (isset($_POST["submit"])) {
                 </div>
             </div>
             <div class="grid">
-                <img src="home/image/banner-2.png" alt="" />
+                <img src="image/banner-2.png" alt="" />
                 <div class="content center">
                     <span>special offer</span>
                     <h3>upto 25% extra</h3>
@@ -529,7 +498,7 @@ if (isset($_POST["submit"])) {
                 </div>
             </div>
             <div class="grid">
-                <img src="home/image/banner-3.png" alt="" />
+                <img src="image/banner-3.png" alt="" />
                 <div class="content">
                     <span>limited offer</span>
                     <h3>100% cashback</h3>
@@ -551,7 +520,7 @@ if (isset($_POST["submit"])) {
 
         <div class="box-container">
             <a href="#" class="box">
-                <img src="home/image/menu-1.png" alt="" />
+                <img src="image/menu-1.png" alt="" />
                 <div class="content">
                     <h3>delicious food</h3>
                     <div class="price">Rp.40.000</div>
@@ -559,7 +528,7 @@ if (isset($_POST["submit"])) {
             </a>
 
             <a href="#" class="box">
-                <img src="home/image/menu-2.png" alt="" />
+                <img src="image/menu-2.png" alt="" />
                 <div class="content">
                     <h3>delicious food</h3>
                     <div class="price">Rp.40.000</div>
@@ -567,7 +536,7 @@ if (isset($_POST["submit"])) {
             </a>
 
             <a href="#" class="box">
-                <img src="home/image/menu-3.png" alt="" />
+                <img src="image/menu-3.png" alt="" />
                 <div class="content">
                     <h3>delicious food</h3>
                     <div class="price">Rp.40.000</div>
@@ -575,7 +544,7 @@ if (isset($_POST["submit"])) {
             </a>
 
             <a href="#" class="box">
-                <img src="home/image/menu-4.png" alt="" />
+                <img src="image/menu-4.png" alt="" />
                 <div class="content">
                     <h3>delicious food</h3>
                     <div class="price">Rp.40.000</div>
@@ -583,7 +552,7 @@ if (isset($_POST["submit"])) {
             </a>
 
             <a href="#" class="box">
-                <img src="home/image/menu-5.png" alt="" />
+                <img src="image/menu-5.png" alt="" />
                 <div class="content">
                     <h3>delicious food</h3>
                     <div class="price">Rp.40.000</div>
@@ -591,7 +560,7 @@ if (isset($_POST["submit"])) {
             </a>
 
             <a href="#" class="box">
-                <img src="home/image/menu-6.png" alt="" />
+                <img src="image/menu-6.png" alt="" />
                 <div class="content">
                     <h3>delicious food</h3>
                     <div class="price">Rp.40.000</div>
@@ -612,17 +581,17 @@ if (isset($_POST["submit"])) {
 
         <div class="icons-container">
             <div class="icons">
-                <img src="home/image/icon-1.png" alt="" />
+                <img src="image/icon-1.png" alt="" />
                 <h3>7:00am to 10:30pm</h3>
             </div>
 
             <div class="icons">
-                <img src="home/image/icon-2.png" alt="" />
+                <img src="image/icon-2.png" alt="" />
                 <h3>+6281365144092</h3>
             </div>
 
             <div class="icons">
-                <img src="home/image/icon-3.png" alt="" />
+                <img src="image/icon-3.png" alt="" />
                 <h3>Jl Kaliuran, Sleman, Yogyakarta</h3>
             </div>
         </div>
@@ -688,7 +657,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <div class="image">
                     <h3><i class="fas fa-calendar"></i> 21st may, 2021</h3>
-                    <img src="home/image/blog-1.jpg" alt="" />
+                    <img src="image/blog-1.jpg" alt="" />
                 </div>
                 <div class="content">
                     <div class="tags">
@@ -708,7 +677,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <div class="image">
                     <h3><i class="fas fa-calendar"></i> 21st may, 2021</h3>
-                    <img src="home/image/blog-2.jpg" alt="" />
+                    <img src="image/blog-2.jpg" alt="" />
                 </div>
                 <div class="content">
                     <div class="tags">
@@ -728,7 +697,7 @@ if (isset($_POST["submit"])) {
             <div class="box">
                 <div class="image">
                     <h3><i class="fas fa-calendar"></i> 21st may, 2021</h3>
-                    <img src="home/image/blog-3.jpg" alt="" />
+                    <img src="image/blog-3.jpg" alt="" />
                 </div>
                 <div class="content">
                     <div class="tags">
@@ -754,10 +723,10 @@ if (isset($_POST["submit"])) {
     <section class="container">
         <div class="card">
             <div class="bg-image">
-                <img src="home/image/5574041.jpg" alt="" />
+                <img src="image/5574041.jpg" alt="" />
             </div>
             <div class="pic">
-                <img src="home/image/rizan.jpg" alt="" />
+                <img src="image/rizan.jpg" alt="" />
             </div>
             <div class="info">
                 <h3>Rizan Qardafil</h3>
@@ -776,10 +745,10 @@ if (isset($_POST["submit"])) {
 
         <div class="card">
             <div class="bg-image">
-                <img src="home/image/5574041.jpg" alt="" />
+                <img src="image/5574041.jpg" alt="" />
             </div>
             <div class="pic">
-                <img src="home/image/image4.jpg" alt="" />
+                <img src="image/image4.jpg" alt="" />
             </div>
             <div class="info">
                 <h3>Agam Fajar Kusuma</h3>
@@ -798,10 +767,10 @@ if (isset($_POST["submit"])) {
 
         <div class="card">
             <div class="bg-image">
-                <img src="home/image/5574041.jpg" alt="" />
+                <img src="image/5574041.jpg" alt="" />
             </div>
             <div class="pic">
-                <img src="home/image/tatma.JPG" alt="" />
+                <img src="image/tatma.JPG" alt="" />
             </div>
             <div class="info">
                 <h3>Tatmainul Quluub</h3>
@@ -820,10 +789,10 @@ if (isset($_POST["submit"])) {
 
         <div class="card">
             <div class="bg-image">
-                <img src="home/image/5574041.jpg" alt="" />
+                <img src="image/5574041.jpg" alt="" />
             </div>
             <div class="pic">
-                <img src="home/image/wulan1.JPG" alt="" />
+                <img src="image/wulan1.JPG" alt="" />
             </div>
             <div class="info">
                 <h3>Syanides Wulan S</h3>
@@ -863,7 +832,7 @@ if (isset($_POST["submit"])) {
             <div class="credit">
                 created <span>Tidak Bisa Ngoding Company</span> | Informatika 2021
             </div>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php">Log Out</a>
         </div>
     </section>
 
@@ -871,7 +840,7 @@ if (isset($_POST["submit"])) {
 
     <!-- custom js file link  -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="home/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

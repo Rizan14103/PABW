@@ -1,13 +1,14 @@
-<?php
+<?php 
 
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "tubes_pabw";
+$server = "localhost";
+$user = "root";
+$pass = "";
+$database = "pabw";
 
-$conn = mysqli_connect($hostname, $username, $password, $database) or die("Database connection failed");
+$conn = mysqli_connect($server, $user, $pass, $database);
 
-$base_url = "https://code.akhfasoft.net/login-register-youtube/";
-$my_email = "code@akhfasoft.net";
+if (!$conn) {
+    die("<script>alert('Connection Failed.')</script>");
+}
 
 ?>
