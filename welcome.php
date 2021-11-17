@@ -44,6 +44,10 @@ if (!isset($_SESSION['username'])) {
             <div id="search-btn" class="fas fa-search"></div>
             <div id="cart-btn" class="fas fa-shopping-cart"></div>
             <div id="login-btn" class="fas fa-user">
+                <ul>
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="logout.php">Logout</a></li>
+                </ul>
             </div>
 
         </div>
@@ -147,22 +151,67 @@ if (!isset($_SESSION['username'])) {
         </div>
     </section>
 
-    <!-- login-form  -->
+    <!-- Profile -->
 
-    <div class="login-form-container">
-        <form action="">
-            <h3>login form</h3>
-            <input type="email" name="" placeholder="enter your email" id="" class="box" />
-            <input type="password" name="" placeholder="enter your password" id="" class="box" />
-            <div class="remember">
-                <input type="checkbox" name="" id="remember-me" />
-                <label for="remember-me">remember me</label>
-            </div>
+    <section class="profile-cart-container">
+        <div class="profile-container">
+            <header>
+                <h3 class="title">Profile Saya</h3>
+            </header>
+            <main>
+                <form action="">
+                    <div class="input-group">
+                        <label class="input-label" for="name">Username</label>
+                        <input type="text" name="name" id="name" placeholder="costumer's username" required>
+                    </div>
 
-            <p>forget password? <a href="#">click here</a></p>
-            <p>don't have an account? <a href="#">create one</a></p>
-        </form>
-    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="age">Email</label>
+                        <input type="email" name="email" id="email" placeholder="costumer's email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" class="input-label" for="age">Nomor Telepon</label>
+                        <input type="text" name="phone" id="phone" placeholder="costumer's phone number">
+                    </div>
+
+                    <div class="input-group">
+                        <p class="input-label">Jenis Kelamin</p>
+                        <div class="input-radio">
+                            <label for="laki-laki"><input type="radio" name="jenis-kelamin"
+                                    id="laki-laki">Laki-Laki</label>
+                            <label for="perempuan"><input type="radio" name="jenis-kelamin"
+                                    id="perempuan">Perempuan</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" class="input-label" for="birthday">Tanggal Lahir</label>
+                        <div class="input-date">
+                            <input type="date" name="birthday" id="">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label"></label>
+                        <input type="button" value="simpan" class="btn">
+                    </div>
+                </form>
+
+                <aside>
+                    <div class="image-card">
+                        <img src="image/image4.jpg" alt="Photo Profile" />
+                        <input type="file" id="file" accept="image/*">
+                        <label for="file">
+                            Choose a Photo
+                        </label>
+                        <caption>Ukuran gambar: maks. 1 MB</caption>
+                    </div>
+                </aside>
+            </main>
+        </div>
+    </section>
+
 
     <!-- home section starts  -->
 
@@ -832,7 +881,6 @@ if (!isset($_SESSION['username'])) {
             <div class="credit">
                 created <span>Tidak Bisa Ngoding Company</span> | Informatika 2021
             </div>
-            <a href="logout.php">Log Out</a>
         </div>
     </section>
 

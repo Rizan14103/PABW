@@ -36,9 +36,9 @@ html::-webkit-scrollbar-thumb {
 section {
   padding: 2rem 9%;
 }
-section:nth-child(even) {
-  background: #eee;
-}
+/* section:nth-child(even) {
+  background-color: #eee;
+} */
 .heading {
   text-align: center;
   padding-bottom: 2rem;
@@ -132,9 +132,41 @@ section:nth-child(even) {
   background: #4481eb;
 }
 
+#login-btn ul{
+  position: absolute;
+  /* top: 6rem; */
+  /* right: 9%; */
+  box-shadow: 0 0 10px #e1e5ee;
+  background-color: #fff;
+  width: 11rem;  
+  visibility: hidden;
+  opacity: 0;
+  transition:opacity 200ms ease-in-out;
+}
+
+#login-btn:hover ul, #login-btn:focus ul{
+  opacity: 1;
+  visibility: visible;
+  z-index: 2000;
+}
+
+#login-btn ul li{  
+  list-style: none;  
+}
+
+#login-btn ul li a{
+  font-size: 1.5rem;
+  color: #666;
+}
+
+#login-btn ul li a:hover{
+  color: #4481eb;
+}
+
 #menu-btn {
   display: none;
 }
+
 
 @-webkit-keyframes fadeUp {
   0% {
@@ -159,7 +191,7 @@ section:nth-child(even) {
   right: 0;
   height: calc(100vh - 8.5rem);
   background: #fff;
-  z-index: 1000;
+  z-index: 999;
   display: none;
 }
 
@@ -205,7 +237,7 @@ section:nth-child(even) {
   top: 8.5rem;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 999;
   height: calc(100vh - 8.5rem);
   background: #fff;
   overflow-y: scroll;
@@ -344,23 +376,139 @@ section:nth-child(even) {
   color: #4481eb;
 }
 
-.login-form-container {
+.profile-cart-container {
   position: fixed;
   top: 8.5rem;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 999;
   height: calc(100vh - 8.5rem);
   background: #fff;
-  padding: 0 2rem;
-  display: none;
+  overflow-y: scroll;
+  padding-bottom: 8rem;
+  display: none;  
 }
 
-.login-form-container.active {
+.profile-cart-container.active {
   display: block;
 }
 
-.login-form-container form {
+.profile-cart-container::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.profile-cart-container::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.profile-cart-container::-webkit-scrollbar-thumb {
+  background: #130f40;
+  border-radius: 5rem;
+}
+
+.profile-cart-container .title {
+  font-size: 2.5rem;
+  padding: 1rem;
+  color: #130f40;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.profile-cart-container .profile-container {
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  -webkit-animation: fadeUp 0.4s linear;
+  animation: fadeUp 0.4s linear;
+}
+
+.profile-cart-container main{
+  display: flex;
+  flex-direction: row;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+aside{
+  width: 30%;    
+  padding: 15px;
+  margin-left: 30px;  
+  /* background-color: lightgray;   */
+  border-left: 0.1rem solid rgba(0, 0, 0, 0.2);  
+}
+
+aside .image-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+aside .image-card img{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  /* margin-top: -90px; */
+  position: relative;
+}
+
+aside .image-card button{
+  background: #fff;
+  color: #555;
+  border: 1px solid rgba(0,0,0,.09);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.03);
+  justify-content: center;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.profile-cart-container form{
+  width: 70%;
+  font-size: 1.5rem;
+}
+
+.input-group{
+  display: flex;
+  margin-bottom: 2rem;  
+}
+
+.input-group .input-label{  
+  width: 30%;
+  text-align: right;
+  padding: 1rem 2rem;  
+  /* background-color: #4481eb; */
+}
+
+.input-group:nth-child(1) input,.input-group:nth-child(2) input,.input-group:nth-child(3) input{
+  width: 70%;
+  padding-left: 10px;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.input-group .input-radio{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  width: 70%;
+  padding-left: 10px;
+}
+
+.input-radio input{
+  margin-right: 7px;
+}
+
+.input-group .input-date{
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;  
+  display: flex;  
+  align-items: center;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+
+
+/* .profile-cart-container form {
   margin: 2rem auto;
   max-width: 40rem;
   -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05);
@@ -370,7 +518,7 @@ section:nth-child(even) {
   border-radius: 0.5rem;
   -webkit-animation: fadeUp 0.4s linear;
   animation: fadeUp 0.4s linear;
-}
+} */
 
 .login-form-container form h3 {
   padding-bottom: 1rem;
